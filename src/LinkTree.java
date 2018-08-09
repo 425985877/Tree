@@ -17,8 +17,9 @@ class BinaryTree{
     //构造函数：利用传入一个数组的参数来建立二叉树
     public BinaryTree(int[] data){
         for(int i=0;i<data.length;i++){
-
+            this.Add_Node_To_Tree(data[i]);
         }
+        this.print(rootNode);
     }
     void Add_Node_To_Tree(int value){
         TreeNode currentNode = rootNode;
@@ -45,11 +46,20 @@ class BinaryTree{
 
             }
         }
+
+    }
+    void print(TreeNode node){
+        if(node == null){
+            return;
+        }
+        System.out.print(node.value+" ");
+        this.print(node.left_Node);
+        this.print(node.right_Node);
     }
 }
 public class LinkTree {
     public static void main(String args[]) throws IOException{
-        int ArraySize = 20;
+        int ArraySize = 10;
         int tempdata;
         int [] content  = new int[ArraySize];
         BufferedReader keyin = new BufferedReader(new InputStreamReader(System.in));
